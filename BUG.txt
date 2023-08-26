@@ -1,0 +1,9 @@
+Running the JUnit "ConstructorInjectedControllerTest" does not result in an error, as expected..
+  Avem interfata IGreetingService, si avem doua clase care o implementeaza, anume 'GreetingService' si 'GreetingServicePrimary'.
+  La rularead testului, ar tb sa fie coliziune deoarece nu specificam pentru nici una din ele nici @Primary nici @Qualify, etc.
+    Exceptia asteptata era: NoUniqueBeanDefinitionException .. cu stackul in DependencyDescriptor.resolveNotUnique, DefaultListableBeanFactory.doResolveDependency() ..
+    Rezultatul curent: testul trece, si se alege beanul 'GreetingService'. Se pare ca deoarece numele e un prefix al celui de-al doilea Bean, ia prioritate ..
+          De asteptat ca daca ar fi 3,4 beanuri cu acelasi pattern, codul s-ar comporta similar.
+    Daca se modifica numele 'GreetingService' ceva ce nu mai constituie prefix pentru al doilea bean, precum 'GreetingServiceBasic', atunci eroarea se reproduce.
+
+
